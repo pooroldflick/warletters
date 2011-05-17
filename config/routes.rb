@@ -1,4 +1,8 @@
 Warletters::Application.routes.draw do
+  get "pages/home"
+
+  get "pages/contact"
+
   resources :letters
 
   resources :users
