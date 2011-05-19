@@ -5,7 +5,6 @@ module ApplicationHelper
     base_title = "War Letters"
       if @title.nil?
         base_title
-      end
       else
 	"#{base_title} | #{@title}"
       end
