@@ -29,4 +29,38 @@ class User < ActiveRecord::Base
   validates			:password, :presence     => true,		# validates the presence of a password
 					   :confirmation => true,		# confirms and creates a password confirmation attribute
 					   :length	 => { :within => 6..40 }
+
+  before_save			:encrypt_password				# encypted password callback will only be used in a User object
+
+  private
+
+    def has_password?(submitted_password)
+      encrypted_password == encrypted(submitted_password)
+    end
+  
+  class << self									# Anything in this block is in the class level of self.
+    def authenticate(email, submitted_password)
+      user = find_by_email(email)
+      return nil      if user.nil?
+      return user     if user.has_password?(submitted_password)      
+    end
+  end
+
+    def encrypt_password
+      self.salt = sale_make if new_record
+      self.encrypted_password = encrypt(password)				#self changes the attribute on the object and prevents it from being a local variable
+    end
+
+    def encrypt(string)
+      secure_hash("#{salt}--#{string}")
+    end
+
+    def make_salt
+      secure_hash("#{Time.now.utc}--#{password}")
+    end
+
+    def secure_hash(string)
+      Digest::SHA2.hexdigest(string)
+    end
+
 end
