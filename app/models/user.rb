@@ -11,10 +11,14 @@
 #
 
 class User < ActiveRecord::Base
-  has_many :letters		# Users have many letters
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i		# regular expression of valid email addresses
 
-  validates_presence_of :name 	# requires users to enter a name
-  validates_presence_of :email	# requires users to enter an email
+  has_many :letters						# Users have many letters
 
-  attr_accessible :name, :email	# allows users to edit their name and email
+  validates_presence_of :name,  :presence   => true, 		 	# requires users to enter a name
+				:length     => { :maximum => 50 } 	# limits the length of names to 50
+  validates_presence_of :email, :presence   => true,	  	  	# requires users to enter an email
+				:format     => { :with => email_regex },	# valid email
+ 				:uniqueness => { :case_sensitive => false }   	# :uniqueness => true is implicit
+  attr_accessible :name, :email					  	# allows users to edit their name and email
 end
