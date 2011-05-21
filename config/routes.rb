@@ -1,14 +1,13 @@
 Warletters::Application.routes.draw do
-  get "users/new"
+
+  resources :users
+  resources :letters
 
   root :to => "pages#home"
   match '/contact', 	:to => 'pages#contact' 
   match '/about', 	:to => 'pages#about'
   match '/help', 	:to => 'pages#help'
   match '/signup',	:to => 'users#new'
-
-  resources :letters
-  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
