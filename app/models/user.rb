@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   end
 
     def encrypt_password
-      self.salt = sale_make if new_record
+      self.salt = make_salt if new_record?
       self.encrypted_password = encrypt(password)				#self changes the attribute on the object and prevents it from being a local variable
     end
 
