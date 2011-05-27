@@ -110,3 +110,10 @@ footer {
 footer nav {
   float: none;
 }
+
+/* User show page */
+
+.profile img.gravatar {
+  border:1px solid #999;
+  margin-bottom: -15px;
+}
