@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>
-  <%= gravatar_for @user %>
+
   <%= @user.name %>
 </h1>
 
-
+<strong>Name</strong>: <%= @user.name %><br />
+<strong>URL</strong>: <%= link_to user_path(@user), user_path(@user) %><br />
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
