@@ -1,11 +1,12 @@
-<h1>Listing letters</h1>
+<h1>List of Letters</h1><br />
 
+<p><% if @user %><%= user.name %>, this <% else %> This <% end %> is a list of letters that have been submitted to War Letters. You can view letters by clicking on <em>show</em>, and if the letter is yours, you can edit or remove the letter.
 <table>
   <tr>
-    <th>Datewritten</th>
+    <th>Date Written</th>
     <th>Author</th>
     <th>Letter</th>
-    <th>Recipient</th>
+    <th>Owner</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,11 +16,11 @@
   <tr>
     <td><%= letter.datewritten %></td>
     <td><%= letter.author %></td>
-    <td><%= letter.letter %></td>
-    <td><%= letter.recipient %></td>
+    <td><%= letter.letter.split.slice(0, 8).join(" ") -%>...</td>
+    <td><%= link_to letter.user.name, letter.user %></td>
     <td><%= link_to 'Show', letter %></td>
-    <td><%= link_to 'Edit', edit_letter_path(letter) %></td>
-    <td><%= link_to 'Destroy', letter, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><% if letter.user == @user %><%= link_to 'Edit', edit_letter_path(letter) %><% end %></td>
+    <td><% if letter.user == @user %><%= link_to 'Remove', letter, :confirm => 'Are you sure?', :method => :delete %><% end %></td>
   </tr>
 <% end %>
 </table>

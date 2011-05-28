@@ -14,4 +14,9 @@
 
 class Letter < ActiveRecord::Base
   belongs_to :user
+  belongs_to :projects
+
+  attr_accessible :datewritten, :author, :letter, :recipient
+
+  default_scope :order => 'letters.datewritten'
 end

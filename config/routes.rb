@@ -2,6 +2,7 @@ Warletters::Application.routes.draw do
 
   resources :users
   resources :letters
+  resources :projects
 
   root :to => "pages#home"
   match '/contact', 	:to => 'pages#contact' 
