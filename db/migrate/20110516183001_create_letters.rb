@@ -8,7 +8,6 @@ class CreateLetters < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :letters :user_id
   end
 
   def self.down
