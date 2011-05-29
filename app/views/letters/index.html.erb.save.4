@@ -1,0 +1,29 @@
+<h1>Listing letters</h1>
+
+<table>
+  <tr>
+    <th>Date Written</th>
+    <th>Author</th>
+    <th>Letter</th>
+    <th>Owner</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @letters.each do |letter| %>
+  <tr>
+    <td><%= letter.datewritten %></td>
+    <td><%= letter.author %></td>
+    <td><%= letter.letter.split.slice(0, 8).join(" ") -%>...</td>
+    <td><%= link_to letter.user.name, letter.user %></td>
+    <td><% if letter.use == @user %><%= link_to 'Show', let %></td>
+    <td><%= link_to('Edit', edit_letter_path(letter)) if letter.user == @user %></td>
+    <td><%= link_to 'Remove', letter, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Letter', new_letter_path %>
