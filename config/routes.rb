@@ -1,5 +1,7 @@
 Warletters::Application.routes.draw do
 
+  resources :people
+
   resources :users
   resources :letters
   resources :projects
