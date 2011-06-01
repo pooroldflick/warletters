@@ -10,7 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110531040941) do
+ActiveRecord::Schema.define(:version => 20110601005151) do
+
+  create_table "brigades", :force => true do |t|
+    t.string   "identity"
+    t.integer  "regiment_id"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "companies", :force => true do |t|
+    t.string   "identity"
+    t.integer  "person_id"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "letters", :force => true do |t|
     t.date     "datewritten"
@@ -44,6 +60,26 @@ ActiveRecord::Schema.define(:version => 20110531040941) do
     t.text     "description"
     t.integer  "user_id"
     t.integer  "letters_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "regiments", :force => true do |t|
+    t.string   "ordinal"
+    t.boolean  "volunteer"
+    t.string   "state"
+    t.string   "reg_type"
+    t.string   "company"
+    t.boolean  "independent"
+    t.string   "name"
+    t.string   "nickname"
+    t.text     "notes"
+    t.integer  "person_id"
+    t.integer  "battle_id"
+    t.integer  "corps_id"
+    t.integer  "brigade_id"
+    t.integer  "division_id"
+    t.integer  "army_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

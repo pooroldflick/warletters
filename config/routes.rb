@@ -1,5 +1,11 @@
 Warletters::Application.routes.draw do
 
+  resources :brigades
+
+  resources :companies
+
+  resources :regiments
+
   resources :people
 
   resources :users
