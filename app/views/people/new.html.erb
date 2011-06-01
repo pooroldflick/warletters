@@ -1,0 +1,40 @@
+<h1>New person</h1>
+
+<%= form_for(@person) do |f| %>
+
+<div class="form">
+  <%= f.label :name, "First and last name of this person:" %><br />
+  <%= f.text_field :name %>
+</div>
+
+<div class="form">
+  <%= f.label :bio, "Biography and Notes on this person:" %><br />
+  <%= f.text_area :bio %>
+</div>
+
+<div class="form">
+  <%= f.label :side, "What side of the Civil War was this person on?" %><br />
+  <%= f.select :side, [['Neutral', 'neutral'],['Union', 'union'],['Confederacy', 'confederacy']] %>
+</div>
+
+<div class="form">
+  <%= f.label :service, "Did this person serve on either side of the Civil War? (Check, if yes)" %><br />
+  <%= f.check_box :service %>Yes
+</div>
+
+<div class="form">
+  <%= f.label :mustered_in, "Rank of person at beginning of the war:"  %><br />
+  <%= f.select :mustered_in, [['Private', 'private'],['Corporal', 'corporal'],['Sgt.', 'sgt'],['1st Sgt.', 'first_sgt'],['1st Lieut.', 'first_lieut'],['2nd Lieut.', 'second_lieut'],['Captain', 'captain'],['Quartermaster Sgt.', 'quartermaster_sgt'],['Sgt. Major', 'sgt_major'],['Commissary', 'commissary'],['Quartermaster', 'quartermaster'],['Asst. Surgeon', 'asst_surgeon'],['Surgeon', 'surgeon'],['Adjutant', 'adjutant'],['Major', 'major'],['Lt. Col.', 'lt_col'],['Col', 'col'],['Cook','cook'],['Musician','musician'],['Servant', 'servant']] %>
+</div>
+
+<div class="form">
+  <%= f.label :mustered_out, "Rank of person at the end of the war:"  %><br />
+  <%= f.select :mustered_out, [['Private', 'private'],['Corporal', 'corporal'],['Sgt.', 'sgt'],['1st Sgt.', 'first_sgt'],['1st Lieut.', 'first_lieut'],['2nd Lieut.', 'second_lieut'],['Captain', 'captain'],['Quartermaster Sgt.', 'quartermaster_sgt'],['Sgt. Major', 'sgt_major'],['Commissary', 'commissary'],['Quartermaster', 'quartermaster'],['Asst. Surgeon', 'asst_surgeon'],['Surgeon', 'surgeon'],['Adjutant', 'adjutant'],['Major', 'major'],['Lt. Col.', 'lt_col'],['Col', 'col'],['Cook','cook'],['Musician','musician'],['Servant', 'servant']] %>
+</div>
+
+<div class="actions">
+  <%= f.submit "Create Person" %>
+</div<
+
+<% end %>
+<%= link_to 'Back', people_path %>
