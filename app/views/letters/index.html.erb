@@ -17,7 +17,7 @@
     <td><%= letter.datewritten %></td>
     <td><%= letter.author %></td>
     <td><%= letter.letter.split.slice(0, 8).join(" ") -%>...</td>
-    <td><%= link_to letter.user.name, letter.user %></td>
+    <td><%= link_to letter.user, letter.user %></td>
     <td><%= link_to 'Show', letter %></td>
     <td><% if letter.user == @user %><%= link_to 'Edit', edit_letter_path(letter) %><% end %></td>
     <td><% if letter.user == @user %><%= link_to 'Remove', letter, :confirm => 'Are you sure?', :method => :delete %><% end %></td>

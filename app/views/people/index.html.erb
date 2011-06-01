@@ -3,37 +3,23 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Bio</th>
-    <th>Service</th>
     <th>Regiment</th>
-    <th>Company</th>
-    <th>Mustered in</th>
-    <th>Mustered out</th>
-    <th>Letter</th>
+    <th>Rank</th>
+    <th>Letters</th>
     <th>User</th>
-    <th>Project</th>
-    <th>Side</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @people.each do |person| %>
   <tr>
-    <td><%= person.name %></td>
-    <td><%= person.bio %></td>
-    <td><%= person.service %></td>
+    <td><%= link_to person.name, person %></td>
     <td><%= person.regiment %></td>
-    <td><%= person.company %></td>
-    <td><%= person.mustered_in %></td>
     <td><%= person.mustered_out %></td>
     <td><%= person.letter_id %></td>
-    <td><%= person.user_id %></td>
-    <td><%= person.project_id %></td>
-    <td><%= person.side %></td>
-    <td><%= link_to 'Show', person %></td>
-    <td><%= link_to 'Edit', edit_person_path(person) %></td>
-    <td><%= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to person.user_id, person.user_id %></td>
+    <td><% if person.user == @user %><%= link_to 'Edit', edit_person_path(person) %><% end %></td>
+    <td><% if person.user == @user %><%= link_to 'Remove', person, :confirm => 'Are you sure?', :method => :delete %><% end %></td>
   </tr>
 <% end %>
 </table>

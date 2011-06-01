@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i				# regular expression of valid email addresses
 
   has_many :letters								# Users have many letters
-  has_many :projects
+  has_many :people
 
   validates		        :name,  :presence      => true, 		# requires users to enter a name
 				:length     => { :maximum => 50 } 		# limits the length of names to 50

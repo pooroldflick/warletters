@@ -14,7 +14,7 @@
 
 class Letter < ActiveRecord::Base
   belongs_to :user
-  belongs_to :projects
+  has_and_belongs_to_many :people
 
   attr_accessible :datewritten, :author, :letter, :recipient
 

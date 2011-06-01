@@ -1,20 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @person.name %>
-</p>
+<h1> <%= @person.name %>
+</h1>
 
-<p>
-  <b>Bio:</b>
-  <%= @person.bio %>
-</p>
-
-<p>
-  <b>Service:</b>
-  <%= @person.service %>
-</p>
-
+<sidebar class="span-8">
 <p>
   <b>Regiment:</b>
   <%= @person.regiment %>
@@ -26,35 +15,29 @@
 </p>
 
 <p>
-  <b>Mustered in:</b>
-  <%= @person.mustered_in %>
+  <b>Rank when mustered in:</b>
+  <%= @person.mustered_in.capitalize %>
 </p>
 
 <p>
-  <b>Mustered out:</b>
-  <%= @person.mustered_out %>
+  <b>Rank when mustered out:</b>
+  <%= @person.mustered_out.capitalize %>
 </p>
 
 <p>
-  <b>Letter:</b>
+  <b>Managed by</b> <%= @person.user_id %>
+</p>
+</sidebar>
+
+<p>
+  <b>Bio:</b>
+  <%= @person.bio %>
+</p>
+
+<p>
+  <b>Letters:</b>
   <%= @person.letter_id %>
 </p>
-
-<p>
-  <b>User:</b>
-  <%= @person.user_id %>
-</p>
-
-<p>
-  <b>Project:</b>
-  <%= @person.project_id %>
-</p>
-
-<p>
-  <b>Side:</b>
-  <%= @person.side %>
-</p>
-
-
 <%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<%= link_to 'Index of People', people_path %>
+

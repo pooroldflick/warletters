@@ -1,23 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Datewritten:</b>
-  <%= @letter.datewritten %>
-</p>
+<h1><%= @letter.datewritten %>
+</h2>
 
 <p>
   <b>Author:</b>
-  <%= @letter.author %>
+  <%= @letter.author %><br />
+  <b>Recipient:</b>
+  <%= @letter.recipient %>
 </p>
 
 <p>
   <b>Letter:</b>
   <%= @letter.letter %>
-</p>
-
-<p>
-  <b>Recipient:</b>
-  <%= @letter.recipient %>
 </p>
 
 

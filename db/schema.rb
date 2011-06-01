@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110601005151) do
+ActiveRecord::Schema.define(:version => 20110601182210) do
 
   create_table "brigades", :force => true do |t|
     t.string   "identity"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20110601005151) do
     t.datetime "updated_at"
     t.boolean  "visability"
     t.integer  "user_id"
+    t.integer  "person_id"
   end
 
   create_table "people", :force => true do |t|
@@ -91,6 +92,8 @@ ActiveRecord::Schema.define(:version => 20110601005151) do
     t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
+    t.integer  "letter_id"
+    t.integer  "person_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
