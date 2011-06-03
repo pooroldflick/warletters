@@ -6,7 +6,16 @@
 <sidebar class="span-8">
 <p>
   <b>Regiment:</b>
+  <% if @person.regiment == nil? %>
+   <%= form_for(@regiment) do |f| %>
+    <div class="form" >
+      <%= f.label :state, "Which State did this person serve?" %>
+      <%= f.select :state, [['Alabama','Alabama'],['Arkansas','Arkansas'],['California','California'],['Colorado','Colorado'],['Dakota Territory','Dakota Territory'],['Delaware','Delaware'],['Florida','Florida'],['Georgia','Georgia'],['Illinoid','Illinois'],['Indiana','Indiana'],['Iowa','Iowa'],['Kansas','Kansas'],['Kentucky','Kentucky'],['Louisiana','Louisiana'],['Maine','Maine'],['Maryland','Maryland'],['Massachusetts','Massachusetts'],['Michigan','Michigan'],['Minnesota','Minnesota'],['Mississippi','Mississippi'],['Missouri','Missouri'],['Nebraska','Nebraska'],['Nevada','Nevada'],['New Hampshire','New Hampshire'],['New Jersey','New Jersey'],['New Mexico','New Mexico'],['New York','New York'],['North Carolina','North Carolina'],['Ohio','Ohio'],['Oregon','Oregon'],['Pennsylvania','Pennsilvania'],['South Carolina','South Carolina'],['Tennessee','Tennessee'],['Texas','Texas'],['Vermont','Vermont'],['Washington Territory','Washington Territory'],['West Virginia','West Virginia'],['Wisconsin','Wisconsin'],['United States Colored Troops','United States Colored Troops'],['United States 
+Regular','United States Regular'],['United States Volunteer','United States Volunteer'],['other','other']] %></div>
+    <% end %>
+  <% else %>
   <%= @person.regiment %>
+  <% end %>
 </p>
 
 <p>
