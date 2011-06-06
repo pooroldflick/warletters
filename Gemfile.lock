@@ -30,6 +30,9 @@ GEM
     activesupport (3.0.7)
     annotate-models (1.0.4)
     arel (2.0.9)
+    autosuggest-rb (0.1.4)
+      rails (~> 3.0)
+      yajl-ruby
     builder (2.1.2)
     diff-lcs (1.1.2)
     erubis (2.6.6)
@@ -84,12 +87,14 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.27)
+    yajl-ruby (0.8.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   annotate-models
+  autosuggest-rb
   factory_girl_rails (= 1.0)
   gravatar_image_tag (= 0.1.0)
   rails (= 3.0.7)

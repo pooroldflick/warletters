@@ -1,13 +1,9 @@
 Warletters::Application.routes.draw do
 
   resources :brigades
-
   resources :companies
-
   resources :regiments
-
   resources :people
-
   resources :users
   resources :letters
   resources :projects
@@ -20,6 +16,10 @@ Warletters::Application.routes.draw do
   match '/signup',	:to => 'users#new'
   match '/signin',   	:to => 'sessions#new'
   match 'signout',	:to => 'sessions#destroy'
+
+#  resources :regiments do
+#    get autosuggest_regiment_name, :on => :name
+#  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

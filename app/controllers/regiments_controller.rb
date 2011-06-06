@@ -1,4 +1,7 @@
 class RegimentsController < ApplicationController
+
+#  autosuggest :regiment, :name
+
   # GET /regiments
   # GET /regiments.xml
   def index
@@ -46,9 +49,11 @@ class RegimentsController < ApplicationController
       if @regiment.save
         format.html { redirect_to(@regiment, :notice => 'Regiment was successfully created.') }
         format.xml  { render :xml => @regiment, :status => :created, :location => @regiment }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @regiment.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -78,6 +83,7 @@ class RegimentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(regiments_url) }
       format.xml  { head :ok }
+      format.js   { render :nothing => true }		# Fading out deleted regiment instead of reloading page
     end
   end
 end

@@ -1,4 +1,4 @@
-<%= form_for(@regiment) do |f| %>
+<%= form_for(@regiment, :remote => true) do |f| %>
   <% if @regiment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@regiment.errors.count, "error") %> prohibited this regiment from being saved:</h2>
@@ -10,9 +10,13 @@
       </ul>
     </div>
   <% end %>
-<p>In order to name a regiment, you'll need to provide the following information. This form will help you name (or find an existing) a regiment.</p>
+<p>In order to name a regiment, you'll need to provide the following information. This form will help you name (or find an existing) a regiment.</p>  
   <div class="field">
-    <%= f.label :ordinal %>
+    <%= f.label :name, "Name of Regiment:" %>
+    <%= f.text_field :name %> 
+  </div>
+  <div class="field">
+    <%= f.label :ordinal, "Ordinance:" %>
     <%= f.select :ordinal, [['1st','1st'],['2nd','2nd'],['3rd','3rd'],['4th','4th'],['5th','5th'],['6th','6th'],['7th','7th'],['8th','8th'],['9th','9th'],['10th','10th'],['11th','11th'],['12th','12th'],['13th','13th'],['14th','14th'],['15th','15th'],['16th','16th'],['17th','17th'],['18th','18th'],['19th','19th'],['20th','20th'],['21st','21st'],['22nd','22nd'],['23rd','23rd'],['24th','24th'],['25th','25th'],['26th','26th'],['27th','27th'],['28th','28th'],['29th','29th'],['30th','30th'],['31st','31st'],['32nd','32nd'],['33rd','33rd'],['34th','34th'],['35th','35th'],['36th','36th'],['37th','37th'],['38th','38th'],['39th','39th'],['40th','40th'],['41st','41st'],['42nd','42nd'],['43rd','43rd'],['44th','44th'],['45th','45th'],['46th','46th'],['47th','47th'],['48th','48th'],['49th','49th'],['50th','50th'],['51st','51st'],['52nd','52nd'],['53rd','53rd'],['54th','54th'],['55th','55th'],['56th','56th'],['57th','57th'],['58th','58th'],['59th','59th'],['60th','60th'],['61st','61st'],['62nd','62nd'],['63rd','63rd'],['64th','64th'],['65th','65th'],['66th','66th'],['67th','67th'],['68th','68th'],['69th','69th'],['70th','70th'],['71st','71st'],['72nd','72nd'],['73rd','73rd'],['74th','74th'],['75th','75th'],['76th','76th'],['77th','77th'],['78th','78th'],['79th','79th'],['80th','80th'],['81st','81st'],['82nd','82nd'],['83rd','83rd'],['84th','84th'],['85th','85th'],['86th','86th'],['87th','87th'],['88th','88th'],['89th','89th'],['90th','90th'],['91st','91st'],['92nd','92nd'],['93rd','93rd'],['94th','94th'],['95th','95th'],['96th','96th'],['97th','97th'],['98th','98th'],['99th','99th'],['100th','100th'],['101st','101st'],['102nd','102nd'],['103rd','103rd'],['104th','104th'],['105th','105th'],['106th','106th'],['107th','107th'],['108th','108th'],['109th','109th'],['110th','110th'],['111th','111th'],['112th','112th'],['113th','113th'],['114th','114th'],['115th','115th'],['116th','116th'],['117th','117th'],['118th','118th'],['119th','119th'],['120th','120th'],['121st','121st'],['122nd','122nd'],['123rd','123rd'],['124th','124th'],['125th','125th'],['126th','126th'],['127th','127th'],['128th','128th'],['129th','129th'],['130th','130th'],['131st','131st'],['132nd','132nd'],['133rd','133rd'],['134th','134th'],['135th','135th'],['136th','136th'],['137th','137th'],['138th','138th'],['139th','139th'],['140th','140th'],['141st','141st'],['142nd','142nd'],['143rd','143rd'],['144th','144th'],['145th','145th'],['146th','146th'],['147th','147th'],['148th','148th'],['149th','149th'],['150th','150th'],['151st','151st'],['152nd','152nd'],['153rd','153rd'],['154th','154th'],['155th','155th'],['156th','156th'],['157th','157th'],['158th','158th'],['159th','159th'],['160th','160th'],['161st','161st'],['162nd','162nd'],['163rd','163rd'],['164th','164th'],['165th','165th'],['166th','166th'],['167th','167th'],['168th','168th'],['169th','169th'],['170th','170th'],['171st','171st'],['172nd','172nd'],['173rd','173rd'],['174th','174th'],['175th','175th'],['176th','176th'],['177th','177th'],['178th','178th'],['179th','179th'],['180th','180th'],['181st','181st'],['182nd','182nd'],['183rd','183rd'],['184th','184th'],['185th','185th'],['186th','186th'],['187th','187th'],['188th','188th'],['189th','189th'],['190th','190th'],['191st','191st'],['192nd','192nd'],['193rd','193rd'],['194th','194th'],['195th','195th'],['196th','196th'],['197th','197th'],['198th','198th'],['199th','199th'],['200th','200th'],['201st','201st'],['202nd','202nd'],['203rd','203rd'],['204th','204th'],['205th','205th'],['206th','206th'],['207th','207th'],['208th','208th'],['209th','209th'],['210th','210th'],['211th','211th'],['212th','212th'],['213th','213th'],['214th','214th'],['215th','215th'],['Company A','Company A'],['Company B','Company B'],['Company C','Company C'],['Company D','Company D'],['Company E','Company E'],['Company F','Company F'],['Company G','Company G'],['Company H','Company H'],['Company I','Company I'],['Company J','Company J'],['Company K','Company K'],['Company L','Company L'],['Company M','Company M'],['Company N','Company N'],['other','other']] %>
   </div>
   <div class="field">
@@ -38,11 +42,6 @@ Regular','United States Regular'],['United States','United States'],['other','ot
   <div class="field">
     <%= f.label :notes, "Notes on this Regiment:" %><br />
     <%= f.text_area :notes %>
-  </div>
-  <div class="field">
-    <p><em>Based on the information you provided above, this is the suggested name for this Regiment. If the suggested name is not correct, you can edit it before submitting it.</em><br />
-    <%= f.label :name, "Suggested Name:" %>
-    <%= f.text_field :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

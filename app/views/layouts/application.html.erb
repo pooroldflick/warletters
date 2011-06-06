@@ -3,6 +3,9 @@
   <head>
     <title><%= title %></title>
     <%= csrf_meta_tag %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "jquery.autoSuggest.js" %>
+    <%= stylesheet_link_tag "autoSuggest.css" %>
     <%= render 'layouts/stylesheets' %>
   </head>
   <body>

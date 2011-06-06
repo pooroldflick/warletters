@@ -3,20 +3,12 @@
 <table>
   <tr>
     <th>Ordinal</th>
-    <th>Volunteer</th>
     <th>State</th>
-    <th>Reg type</th>
-    <th>Company</th>
+    <th>Volunteer</th>
     <th>Independent</th>
+    <th>Reg type</th>
     <th>Name</th>
     <th>Nickname</th>
-    <th>Notes</th>
-    <th>Person</th>
-    <th>Battle</th>
-    <th>Corps</th>
-    <th>Brigade</th>
-    <th>Division</th>
-    <th>Army</th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,20 +17,12 @@
 <% @regiments.each do |regiment| %>
   <tr>
     <td><%= regiment.ordinal %></td>
-    <td><%= regiment.volunteer %></td>
     <td><%= regiment.state %></td>
-    <td><%= regiment.reg_type %></td>
-    <td><%= regiment.company %></td>
+    <td><%= regiment.volunteer %></td>
     <td><%= regiment.independent %></td>
+    <td><%= regiment.reg_type %></td>
     <td><%= regiment.name %></td>
     <td><%= regiment.nickname %></td>
-    <td><%= regiment.notes %></td>
-    <td><%= regiment.person_id %></td>
-    <td><%= regiment.battle_id %></td>
-    <td><%= regiment.corps_id %></td>
-    <td><%= regiment.brigade_id %></td>
-    <td><%= regiment.division_id %></td>
-    <td><%= regiment.army_id %></td>
     <td><%= link_to 'Show', regiment %></td>
     <td><%= link_to 'Edit', edit_regiment_path(regiment) %></td>
     <td><%= link_to 'Destroy', regiment, :confirm => 'Are you sure?', :method => :delete %></td>
